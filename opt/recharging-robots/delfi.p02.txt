@@ -1,0 +1,250 @@
+Parsing pddl.....
+Parsing pddl..: [0.010s CPU, 0.008s wall-clock]
+Normalizing task.....
+Normalizing task..: [0.000s CPU, 0.000s wall-clock]
+Creating abstract structure graph.....
+Creating abstract structure graph..: [0.000s CPU, 0.001s wall-clock]
+Computing image from given graph...
+Using graph input file /root/ipc2023-dataset/opt/recharging-robots/abstract-structure-graph.txt
+Using image output directory /root/ipc2023-dataset/opt/recharging-robots
+Writing abstract structure graph grayscale 8bit image.....
+Grayscale color: 255
+Creating matrix for a graph with 318 nodes..
+Matrix size when created: 824328
+Matrix created, filling with values for edges..
+Performing bolding.
+Matrix size when 1s added: 824328
+Number of graph nodes: 321
+Shrink ratio: 3
+Shrinking matrix to size 107x107..
+Shrinked matrix size when created: 91592
+Writing grayscale image of size 128x128 ..
+Writing abstract structure graph grayscale 8bit image..: [0.190s CPU, 0.023s wall-clock]
+Done computing image! [0.210s CPU, 0.024s wall-clock]
+
+==== Computing an abstract structure graph from the lifted task description... ====
+
+
+==== Done computing an abstract structure graph. ====
+
+
+==== Selecting planner from learned model... ====
+
+Using json model file /workspace/delfi/dl_model/models/lifted/model.json
+Using h5 model file /workspace/delfi/dl_model/models/lifted/model.h5
+Loaded model from disk
+Chose 5652d59dafed-h2-simpless-oss-cpdbshc900
+
+==== Done selecting planner from learned model. ====
+
+
+==== Running the selected planner... ====
+
+Running planner, call string: ['/usr/bin/python', '/workspace/delfi/fast-downward.py', '--transform-task', 'preprocess', '--build', 'release64', '--search-memory-limit', '7600M', '--plan-file', 'test.plan', 'domain.pddl', 'p02.pddl', '--symmetries', 'sym=structural_symmetries(search_symmetries=oss)', '--search', 'astar(cpdbs(patterns=hillclimbing(max_time=900),transform=multiply_out_conditional_effects),symmetries=sym,pruning=stubborn_sets_simple(minimum_pruning_ratio=0.01),num_por_probes=1000)']
+INFO     Running translator.
+INFO     translator input: ['domain.pddl', 'p02.pddl']
+INFO     translator arguments: []
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     callstring: /usr/bin/python /workspace/delfi/builds/release64/bin/translate/translate.py domain.pddl p02.pddl
+Parsing...
+Parsing: [0.000s CPU, 0.002s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.010s CPU, 0.002s wall-clock]
+Preparing model... [0.000s CPU, 0.001s wall-clock]
+Generated 48 rules.
+Computing model... [0.570s CPU, 0.570s wall-clock]
+91486 relevant atoms
+13788 auxiliary atoms
+105274 final queue length
+293242 total queue pushes
+Completing instantiation... [3.200s CPU, 3.204s wall-clock]
+Instantiating: [3.800s CPU, 3.795s wall-clock]
+Computing fact groups...
+Finding invariants...
+12 initial candidates
+Finding invariants: [0.040s CPU, 0.044s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+39 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.050s CPU, 0.046s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.120s CPU, 0.117s wall-clock]
+Translating task: [1.840s CPU, 1.850s wall-clock]
+0 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+6 propositions removed
+Detecting unreachable propositions: [1.350s CPU, 1.351s wall-clock]
+Reordering and filtering variables...
+9 of 45 variables necessary.
+0 of 6 mutex groups necessary.
+63372 of 63372 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.170s CPU, 0.168s wall-clock]
+Translator variables: 9
+Translator derived variables: 0
+Translator facts: 165
+Translator goal facts: 3
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 63372
+Translator axioms: 0
+Translator task size: 435489
+Translator peak memory: 400400 KB
+Writing output... [0.220s CPU, 0.233s wall-clock]
+Done! [7.570s CPU, 7.571s wall-clock]
+INFO     Run task transformation (preprocess).
+INFO     Absolute path: /workspace/delfi/builds/release64/bin/preprocess
+INFO     callstring: /workspace/delfi/builds/release64/bin/preprocess < output.sas
+Building causal graph...
+The causal graph is not acyclic.
+9 variables of 9 necessary
+0 of 0 mutex groups necessary.
+63372 of 63372 operators necessary.
+0 of 0 axiom rules necessary.
+Initializing mutex computation...
+Mutex computation initialized with 165 fluents.
+iteration for mutex detection and operator pruning
+Initialize m_index fw
+Initialized mvalues forward: reached=81, notReached=22542, spurious=4602
+Initialize m_ops fw
+Computing mutexes...
+Mutex computation finished with reached=22623, notReached=0, spurious=4602
+0 operators are spurious because were not triggered
+H^2 mutexes added fw: 0, unreachable: 0
+0 of 63372 operators detected as spurious
+iteration for mutex detection and operator pruning
+Initialize m_index bw
+Init values regression
+Initialized mvalues backward: reached=2778, notReached=19845, spurious=4602
+Initialize m_ops bw
+Computing mutexes...
+Mutex computation finished with reached=22413, notReached=210, spurious=4602
+105 operators are spurious because were not triggered
+H^2 mutexes added bw: 210, unreachable: 0
+0 of 63267 operators detected as spurious
+iteration for mutex detection and operator pruning
+Initialize m_index fw
+Initialized mvalues forward: reached=81, notReached=22332, spurious=4812
+Initialize m_ops fw
+Computing mutexes...
+Mutex computation finished with reached=22413, notReached=0, spurious=4812
+0 operators are spurious because were not triggered
+H^2 mutexes added fw: 0, unreachable: 0
+0 of 63267 operators detected as spurious
+Total mutex and disambiguation time: 0.933196 iterations: 3
+105 of 105 mutex groups necessary.
+63267 of 63372 operators necessary.
+0 of 0 axiom rules necessary.
+Change id of operators: 63267
+Change id of mutexes
+Change id of goals
+Change id of initial state
+Remove unreachable facts from variables: 9
+105 of 105 mutex groups necessary.
+63267 of 63267 operators necessary.
+0 of 0 axiom rules necessary.
+Updating causal graph and pruning unnecessary facts
+9 variables of 9 of 9 necessary
+The causal graph is not acyclic.
+9 variables of 9 necessary
+105 of 105 mutex groups necessary.
+63267 of 63267 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor variables: 9
+Preprocessor facts: 165
+Preprocessor derived variables: 0
+Preprocessor operators: 63267
+Preprocessor mutex groups: 105
+Preprocessor task size: 435279
+Writing output...
+done
+INFO     Running search (release64).
+INFO     search input: output.sas
+INFO     search arguments: ['--symmetries', 'sym=structural_symmetries(search_symmetries=oss)', '--search', 'astar(cpdbs(patterns=hillclimbing(max_time=900),transform=multiply_out_conditional_effects),symmetries=sym,pruning=stubborn_sets_simple(minimum_pruning_ratio=0.01),num_por_probes=1000)']
+INFO     search time limit: None
+INFO     search memory limit: 7600 MB
+INFO     search executable: /workspace/delfi/builds/release64/bin/downward
+INFO     callstring: /workspace/delfi/builds/release64/bin/downward --symmetries 'sym=structural_symmetries(search_symmetries=oss)' --search 'astar(cpdbs(patterns=hillclimbing(max_time=900),transform=multiply_out_conditional_effects),symmetries=sym,pruning=stubborn_sets_simple(minimum_pruning_ratio=0.01),num_por_probes=1000)' --internal-plan-file test.plan < output.sas
+reading input... [t=5.7246e-05s]
+done reading input! [t=0.119271s]
+packing state variables...done! [t=0.119312s]
+Variables: 9
+FactPairs: 165
+Bytes per state: 8
+Building successor generator...done! [t=0.135958s]
+peak memory difference for root successor generator creation: 8272 KB
+time for root successor generation creation: 0.01657s
+done initializing global data [t=0.136066s]
+PDB collection construction time: 0.0237644s
+Done calculating initial PDB collection
+Average operator cost: 0.999953
+building causal graph...done! [t=0.0049688s]
+Done calculating initial candidate PDBs
+current collection size is 108
+current initial h value: 16
+pattern: [3, 6] - improvement: 1000
+pattern: [4, 7] - improvement: 995
+pattern: [5, 8] - improvement: 980
+found a better pattern with improvement 1000
+pattern: [3, 6]
+Hill climbing time so far: 0.183885s
+current collection size is 720
+current initial h value: 22
+pattern: [4, 7] - improvement: 17
+found a better pattern with improvement 17
+pattern: [4, 7]
+Hill climbing time so far: 0.288728s
+current collection size is 1332
+current initial h value: 22
+Improvement below threshold. Stop hill climbing.
+iPDB: iterations = 3
+iPDB: number of patterns = 5
+iPDB: size = 1332
+iPDB: generated = 16
+iPDB: rejected = 0
+iPDB: maximum pdb size = 22032
+iPDB: hill climbing time: 0.293436s
+Pattern generation (hill climbing) time: 0.317278s
+PDB collection construction time: 0.317289s
+Pruned 1 of 3 maximal additive subsets
+Pruned 0 of 5 PDBs
+Dominance pruning took 8.116e-06s
+Initializing symmetries (eager search)
+Initializing symmetries
+Using Bliss to find group generators
+Done initializing symmetries: 0.0258406s
+Number of generators: 0
+Number of identity generators (on states, not on operators): 0
+Order of generators: []
+Conducting best first search with reopening closed nodes, (real) bound = 2147483647
+New best heuristic value for cpdbs(patterns = hillclimbing(max_time = 900), transform = multiply_out_conditional_effects): 22
+[g=0, 1 evaluated, 0 expanded, t=0.483607s, 55180 KB]
+f = 22 [1 evaluated, 0 expanded, t=0.483676s, 55180 KB]
+Initial heuristic value for cpdbs(patterns = hillclimbing(max_time = 900), transform = multiply_out_conditional_effects): 22
+Failed to allocate memory.
+Memory limit has been reached.
+Peak memory: 7782304 KB
+Overall time: [30.680s CPU, 30.722s wall-clock]
+
+==== Done running the selected planner. ====
+

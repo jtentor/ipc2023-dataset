@@ -1,0 +1,358 @@
+Parsing pddl.....
+Parsing pddl..: [0.000s CPU, 0.002s wall-clock]
+Normalizing task.....
+Normalizing task..: [0.000s CPU, 0.000s wall-clock]
+Creating abstract structure graph.....
+Creating abstract structure graph..: [0.010s CPU, 0.001s wall-clock]
+Computing image from given graph...
+Using graph input file /root/ipc2023-dataset/sat/recharging-robots/abstract-structure-graph.txt
+Using image output directory /root/ipc2023-dataset/sat/recharging-robots
+Writing abstract structure graph grayscale 8bit image.....
+Grayscale color: 255
+Creating matrix for a graph with 305 nodes..
+Matrix size when created: 749088
+Matrix created, filling with values for edges..
+Performing bolding.
+Matrix size when 1s added: 749088
+Number of graph nodes: 306
+Shrink ratio: 3
+Shrinking matrix to size 102x102..
+Shrinked matrix size when created: 83232
+Writing grayscale image of size 128x128 ..
+Writing abstract structure graph grayscale 8bit image..: [0.030s CPU, 0.020s wall-clock]
+Done computing image! [0.030s CPU, 0.021s wall-clock]
+
+==== Computing an abstract structure graph from the lifted task description... ====
+
+
+==== Done computing an abstract structure graph. ====
+
+
+==== Selecting planner from learned model... ====
+
+Using json model file /workspace/delfi/dl_model/models/lifted/model.json
+Using h5 model file /workspace/delfi/dl_model/models/lifted/model.h5
+Loaded model from disk
+Chose seq-opt-symba-1
+
+==== Done selecting planner from learned model. ====
+
+
+==== Running the selected planner... ====
+
+Running planner, call string: ['/usr/bin/python', '/workspace/delfi/symba.py', 'seq-opt-symba-1', 'domain.pddl', 'p01.pddl', 'test.plan']
+1. Running translator
+Second argument is a file name: use two translator arguments.
+Parsing...
+Parsing: [0.000s CPU, 0.001s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.010s CPU, 0.003s wall-clock]
+Preparing model... [0.000s CPU, 0.001s wall-clock]
+Generated 48 rules.
+Computing model... [0.170s CPU, 0.173s wall-clock]
+25882 relevant atoms
+6987 auxiliary atoms
+32869 final queue length
+87850 total queue pushes
+Completing instantiation... [1.080s CPU, 1.087s wall-clock]
+Instantiating: [1.280s CPU, 1.271s wall-clock]
+Computing fact groups...
+Finding invariants...
+12 initial candidates
+Finding invariants: [0.010s CPU, 0.011s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+33 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.010s CPU, 0.012s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.050s CPU, 0.048s wall-clock]
+Translating task: [0.480s CPU, 0.485s wall-clock]
+0 implied effects removed
+0 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+6 propositions removed
+Detecting unreachable propositions: [0.060s CPU, 0.054s wall-clock]
+Translator variables: 39
+Translator derived variables: 0
+Translator facts: 186
+Translator mutex groups: 6
+Translator total mutex groups size: 120
+Translator operators: 18234
+Translator task size: 124638
+Translator peak memory: 146280 KB
+Writing output... [0.060s CPU, 0.070s wall-clock]
+Done! [1.950s CPU, 1.953s wall-clock]
+
+2. Running preprocessor
+Building causal graph...
+The causal graph is not acyclic.
+9 variables of 39 necessary
+0 of 6 mutex groups necessary.
+18234 of 18234 operators necessary.
+0 of 0 axiom rules necessary.
+Initializing mutex computation...
+Mutex computation initialized with 126 fluents.
+iteration for mutex detection and operator pruning
+Initialize m_index fw
+Initialized mvalues forward: reached=81, notReached=12909, spurious=2886
+Initialize m_ops fw
+Computing mutexes...
+Mutex computation finished with reached=12990, notReached=0, spurious=2886
+0 operators are spurious because were not triggered
+H^2 mutexes added fw: 0, unreachable: 0
+0 of 18234 operators detected as spurious
+iteration for mutex detection and operator pruning
+Initialize m_index bw
+Init values regression
+Initialized mvalues backward: reached=1245, notReached=11745, spurious=2886
+Initialize m_ops bw
+Computing mutexes...
+Mutex computation finished with reached=12816, notReached=174, spurious=2886
+87 operators are spurious because were not triggered
+H^2 mutexes added bw: 174, unreachable: 0
+0 of 18147 operators detected as spurious
+iteration for mutex detection and operator pruning
+Initialize m_index fw
+Initialized mvalues forward: reached=81, notReached=12735, spurious=3060
+Initialize m_ops fw
+Computing mutexes...
+Mutex computation finished with reached=12816, notReached=0, spurious=3060
+0 operators are spurious because were not triggered
+H^2 mutexes added fw: 0, unreachable: 0
+0 of 18147 operators detected as spurious
+Total mutex and disambiguation time: 0.290929
+87 of 87 mutex groups necessary.
+18147 of 18234 operators necessary.
+0 of 0 axiom rules necessary.
+Change id of operators: 18147
+Change id of axioms: 0
+Change id of mutexes
+Change id of goals
+Change id of initial state
+Remove unreachable facts from variables: 9
+87 of 87 mutex groups necessary.
+18147 of 18147 operators necessary.
+0 of 0 axiom rules necessary.
+Updating causal graph and pruning unnecessary facts
+9 variables of 9 of 39 necessary
+The causal graph is not acyclic.
+87 of 87 mutex groups necessary.
+18147 of 18147 operators necessary.
+0 of 0 axiom rules necessary.
+Ordering: 9
+previous variable order: var38 - var37 - var36 - var5 - var3 - var4 - var2 - var0 - var1 - : 238
+New value: 110
+New value: 108
+new variable order: var37 - var36 - var1 - var0 - var4 - var3 - var5 - var2 - var38 - : 108
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor facts: 126
+Preprocessor derived variables: 0
+Preprocessor task size: 123768
+Writing output...
+Number of vars: 9
+weighted 9
+done
+
+
+3. Running search
+Dispatcher selected state size 1.
+This is a nonunit task.
+Simplifying transitions... done!
+  Max num abstractions: 100
+   Abs TRs Strategy: ind_tr_shrink
+   PH time: 500, memory: 3e+09
+   Relax time: 10000, nodes: 100000000
+   Ratio relax time: 0.75, nodes: 0.75
+   Perimeter Abstractions: yes
+   Relax dir: bd
+   ShouldAbstract ratio: 0
+CUDD Init: nodes=16000000 cache=16000000 max_memory=0
+TR(time=60000, nodes=100000)
+Mutex(time=60000, nodes=100000, type=edeletion)
+Disj(nodes=2147483647)
+Estimation: min_time(1000) time_penalty +(1000)*(2) nodes_penalty +(1000)*(2)
+Pop(time=2000, nodes=1000000)
+MaxStep(time=30000, nodes=10000000)
+Ratio useful: 0
+   Min alloted time: 60000 nodes: 10000000
+   Max alloted time: 60000 nodes: 15000000
+   Mult alloted time: 2 nodes: 2
+   Ratio after relax: 0.8
+  Max num abstractions: 100
+   Abs TRs Strategy: ind_tr_shrink
+   PH time: 500, memory: 3e+09
+   Relax time: 10000, nodes: 100000000
+   Ratio relax time: 0.75, nodes: 0.75
+   Perimeter Abstractions: yes
+   Relax dir: bd
+   ShouldAbstract ratio: 0
+CUDD Init: nodes=16000000 cache=16000000 max_memory=0
+TR(time=60000, nodes=100000)
+Mutex(time=60000, nodes=100000, type=edeletion)
+Disj(nodes=2147483647)
+Estimation: min_time(1000) time_penalty +(1000)*(2) nodes_penalty +(1000)*(2)
+Pop(time=2000, nodes=1000000)
+MaxStep(time=30000, nodes=10000000)
+Ratio useful: 0
+   Min alloted time: 60000 nodes: 10000000
+   Max alloted time: 60000 nodes: 15000000
+   Mult alloted time: 2 nodes: 2
+   Ratio after relax: 0.8
+  Max num abstractions: 100
+   Abs TRs Strategy: ind_tr_shrink
+   PH time: 500, memory: 3e+09
+   Relax time: 10000, nodes: 100000000
+   Ratio relax time: 0.75, nodes: 0.75
+   Perimeter Abstractions: yes
+   Relax dir: bd
+   ShouldAbstract ratio: 0
+CUDD Init: nodes=16000000 cache=16000000 max_memory=0
+TR(time=60000, nodes=100000)
+Mutex(time=60000, nodes=100000, type=edeletion)
+Disj(nodes=2147483647)
+Estimation: min_time(1000) time_penalty +(1000)*(2) nodes_penalty +(1000)*(2)
+Pop(time=2000, nodes=1000000)
+MaxStep(time=30000, nodes=10000000)
+Ratio useful: 0
+   Min alloted time: 60000 nodes: 10000000
+   Max alloted time: 60000 nodes: 15000000
+   Mult alloted time: 2 nodes: 2
+   Ratio after relax: 0.8
+Initializing Symbolic Variables
+Num variables: 9 => 30
+Initialize Symbolic Manager(60, 266666, 16000000, 0)
+Generating binary variables
+Generating predicate BDDs
+Symbolic Variables... Done.
+CUDD Init: nodes=16000000 cache=16000000 max_memory=0
+TR(time=60000, nodes=100000)
+Mutex(time=60000, nodes=100000, type=edeletion)
+Disj(nodes=2147483647)
+Estimation: min_time(1000) time_penalty +(1000)*(2) nodes_penalty +(1000)*(2)
+Pop(time=2000, nodes=1000000)
+MaxStep(time=45000, nodes=10000000)
+Ratio useful: 0
+   Min alloted time: 60000 nodes: 10000000
+   Max alloted time: 60000 nodes: 15000000
+   Mult alloted time: 2 nodes: 2
+   Ratio after relax: 0.8
+SymBA* 
+   Search dir: bd
+   Time force original: 1500 seconds
+Conducting symbolic search Operator cost: 0 (real) bound = 2147483647
+Initialize abstraction hierarchy
+Mutex BDD BW Size(100000):
+Mutex BDD FW Size(100000): 35
+TRs cost=0 (1):  28
+TRs cost=1 (1):  12140
+>> Step: original fw f=0, g=0
+>> Step: original fw f=0, g=0
+BOUND: 1 < 2147483647, total time: 0.66s
+>> Step: original bw f=1, g=0
+>> Step: original bw f=1, g=0
+BOUND: 2 < 2147483647, total time: 0.66s
+>> Step: original fw f=2, g=1
+>> Step: original fw f=2, g=1
+>> Step: original fw f=2, g=1
+BOUND: 3 < 2147483647, total time: 0.66s
+>> Step: original fw f=3, g=2
+>> Step: original fw f=3, g=2
+>> Step: original fw f=3, g=2
+BOUND: 4 < 2147483647, total time: 0.66s
+>> Step: original fw f=4, g=3
+>> Step: original fw f=4, g=3
+>> Step: original fw f=4, g=3
+BOUND: 5 < 2147483647, total time: 0.66s
+>> Step: original fw f=5, g=4
+>> Step: original fw f=5, g=4
+>> Step: original fw f=5, g=4
+BOUND: 6 < 2147483647, total time: 0.66s
+>> Step: original fw f=6, g=5
+>> Step: original fw f=6, g=5
+>> Step: original fw f=6, g=5
+BOUND: 7 < 2147483647, total time: 0.66s
+>> Step: original fw f=7, g=6
+>> Step: original fw f=7, g=6
+>> Step: original fw f=7, g=6
+BOUND: 8 < 2147483647, total time: 0.68s
+>> Step: original fw f=8, g=7
+>> Step: original fw f=8, g=7
+>> Step: original bw f=8, g=1
+>> Step: original bw f=8, g=1
+BOUND: 9 < 2147483647, total time: 0.68s
+>> Step: original bw f=9, g=2
+>> Step: original bw f=9, g=2
+BOUND: 10 < 2147483647, total time: 0.68s
+>> Step: original bw f=10, g=3
+>> Step: original bw f=10, g=3
+BOUND: 11 < 2147483647, total time: 0.68s
+>> Step: original bw f=11, g=4
+>> Step: original bw f=11, g=4
+BOUND: 12 < 2147483647, total time: 0.68s
+>> Step: original bw f=12, g=5
+>> Step: original bw f=12, g=5
+BOUND: 13 < 2147483647, total time: 0.68s
+>> Step: original bw f=13, g=6
+>> Step: original bw f=13, g=6
+BOUND: 14 < 2147483647, total time: 0.7s
+>> Step: original fw f=14, g=7
+BOUND: 15 < 2147483647, total time: 0.72s
+>> Step: original fw f=15, g=8
+>> Step: original fw f=15, g=8
+>> Step: original fw f=15, g=8
+Solution found with cost 16 total time: 0.72s
+BOUND: 15 < 16, total time: 1.02s
+BOUND: 2147483647 < 16, total time: 1.02s
+Actual search time: 0.36s [t=1.02s]
+recharge robot-00 robot-02 location-0027 battery-0008 battery-0007 battery-0001 battery-0002 (1)
+recharge robot-00 robot-02 location-0027 battery-0007 battery-0006 battery-0002 battery-0003 (1)
+recharge robot-00 robot-02 location-0027 battery-0006 battery-0005 battery-0003 battery-0004 (1)
+recharge robot-00 robot-01 location-0027 battery-0005 battery-0004 battery-0000 battery-0001 (1)
+recharge robot-00 robot-01 location-0027 battery-0004 battery-0003 battery-0001 battery-0002 (1)
+recharge robot-00 robot-01 location-0027 battery-0003 battery-0002 battery-0002 battery-0003 (1)
+recharge robot-00 robot-01 location-0027 battery-0002 battery-0001 battery-0003 battery-0004 (1)
+move robot-01 location-0027 location-0026 battery-0004 battery-0003 (1)
+move robot-00 location-0027 location-0028 battery-0001 battery-0000 (1)
+move robot-01 location-0026 location-0009 battery-0003 battery-0002 (1)
+move robot-01 location-0009 location-0021 battery-0002 battery-0001 (1)
+move robot-01 location-0021 location-0003 battery-0001 battery-0000 (1)
+move robot-02 location-0027 location-0015 battery-0004 battery-0003 (1)
+move robot-02 location-0015 location-0000 battery-0003 battery-0002 (1)
+move robot-02 location-0000 location-0001 battery-0002 battery-0001 (1)
+move robot-02 location-0001 location-0023 battery-0001 battery-0000 (1)
+Plan length: 16 step(s).
+Plan cost: 16
+Expanded 0 state(s).
+Reopened 0 state(s).
+Evaluated 0 state(s).
+Evaluations: 0
+Generated 0 state(s).
+Dead ends: 0 state(s).
+Search space hash size: 0
+Search space hash bucket count: 193
+Search time: 0.68s
+Total time: 1.02s
+Solution found.
+Peak memory: 303900 KB
+
+Overall time: [4.230s CPU, 4.283s wall-clock]
+
+==== Done running the selected planner. ====
+

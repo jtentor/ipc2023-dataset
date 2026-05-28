@@ -1,0 +1,423 @@
+['translate', 'transform_task', 'search']
+translate
+['translate', 'transform_task', 'search']
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python3 /workspace/cerberus/builds/release/bin/translate/translate.py domain.pddl p02.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.000s CPU, 0.002s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.010s CPU, 0.004s wall-clock]
+Preparing model... [0.000s CPU, 0.001s wall-clock]
+Generated 48 rules.
+Computing model... [0.490s CPU, 0.491s wall-clock]
+88843 relevant atoms
+13710 auxiliary atoms
+102553 final queue length
+284798 total queue pushes
+Completing instantiation... [2.660s CPU, 2.670s wall-clock]
+Instantiating: [3.180s CPU, 3.182s wall-clock]
+Computing fact groups...
+Finding invariants...
+12 initial candidates
+Finding invariants: [0.030s CPU, 0.035s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+39 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.030s CPU, 0.036s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.100s CPU, 0.098s wall-clock]
+Translating task: [2.000s CPU, 1.997s wall-clock]
+0 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+8 propositions removed
+Detecting unreachable propositions: [1.160s CPU, 1.157s wall-clock]
+Reordering and filtering variables...
+12 of 47 variables necessary.
+0 of 8 mutex groups necessary.
+68204 of 68204 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.180s CPU, 0.179s wall-clock]
+Translator variables: 12
+Translator derived variables: 0
+Translator facts: 200
+Translator goal facts: 4
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 68204
+Translator axioms: 0
+Translator task size: 469640
+Translator peak memory: 333080 KB
+Writing output... [0.320s CPU, 0.326s wall-clock]
+Done! [6.980s CPU, 6.993s wall-clock]
+
+translate exit code: 0
+INFO     Run task transformation (preprocess).
+INFO     Absolute path: /workspace/cerberus/builds/release/bin/preprocess
+INFO     transform_task stdin: output.sas
+INFO     transform_task time limit: None
+INFO     transform_task memory limit: None
+INFO     transform_task command line string: /workspace/cerberus/builds/release/bin/preprocess < output.sas
+Building causal graph...
+The causal graph is not acyclic.
+12 variables of 12 necessary
+0 of 0 mutex groups necessary.
+68204 of 68204 operators necessary.
+0 of 0 axiom rules necessary.
+Initializing mutex computation...
+Mutex computation initialized with 200 fluents.
+iteration for mutex detection and operator pruning
+Initialize m_index fw
+Initialized mvalues forward: reached=144, notReached=34464, spurious=5392
+Initialize m_ops fw
+Computing mutexes...
+Mutex computation finished with reached=34608, notReached=0, spurious=5392
+0 operators are spurious because were not triggered
+H^2 mutexes added fw: 0, unreachable: 0
+0 of 68204 operators detected as spurious
+iteration for mutex detection and operator pruning
+Initialize m_index bw
+Init values regression
+Initialized mvalues backward: reached=3464, notReached=31144, spurious=5392
+Initialize m_ops bw
+Computing mutexes...
+Mutex computation finished with reached=34336, notReached=272, spurious=5392
+136 operators are spurious because were not triggered
+H^2 mutexes added bw: 272, unreachable: 0
+0 of 68068 operators detected as spurious
+iteration for mutex detection and operator pruning
+Initialize m_index fw
+Initialized mvalues forward: reached=144, notReached=34192, spurious=5664
+Initialize m_ops fw
+Computing mutexes...
+Mutex computation finished with reached=34336, notReached=0, spurious=5664
+0 operators are spurious because were not triggered
+H^2 mutexes added fw: 0, unreachable: 0
+0 of 68068 operators detected as spurious
+Total mutex and disambiguation time: 1.51612 iterations: 3
+136 of 136 mutex groups necessary.
+68068 of 68204 operators necessary.
+0 of 0 axiom rules necessary.
+Change id of operators: 68068
+Change id of mutexes
+Change id of goals
+Change id of initial state
+Remove unreachable facts from variables: 12
+136 of 136 mutex groups necessary.
+68068 of 68068 operators necessary.
+0 of 0 axiom rules necessary.
+Updating causal graph and pruning unnecessary facts
+12 variables of 12 of 12 necessary
+The causal graph is not acyclic.
+12 variables of 12 necessary
+136 of 136 mutex groups necessary.
+68068 of 68068 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor variables: 12
+Preprocessor facts: 200
+Preprocessor derived variables: 0
+Preprocessor operators: 68068
+Preprocessor mutex groups: 136
+Preprocessor task size: 469368
+Writing output...
+done
+
+transform_task exit code: 0
+INFO     Running search (release).
+INFO     search stdin: output.sas
+INFO     search time limit: None
+INFO     search memory limit: None
+INFO     search command line string: /workspace/cerberus/builds/release/bin/downward --if-unit-cost --evaluator 'hlm=lmcount(lm_rhw(reasonable_orders=true),pref=true)' --evaluator 'hrb=RB(dag=from_coloring,extract_plan=true)' --evaluator 'hn=novelty(eval=hrb)' --search 'iterated([lazy(open=alt([tiebreaking([hn,hrb]),single(hrb,pref_only=true),single(hlm),single(hlm,pref_only=true)],boost=1000),preferred=[hrb,hlm]),lazy_wastar([hrb,hlm],preferred=[hrb,hlm],w=5),lazy_wastar([hrb,hlm],preferred=[hrb,hlm],w=3),lazy_wastar([hrb,hlm],preferred=[hrb,hlm],w=2),lazy_wastar([hrb,hlm],preferred=[hrb,hlm],w=1)],repeat_last=true,continue_on_fail=true)' --if-non-unit-cost --evaluator 'hlm1=lmcount(lm_rhw(reasonable_orders=true),transform=adapt_costs(one),pref=true)' --evaluator 'hrb1=RB(dag=from_coloring,extract_plan=true,transform=adapt_costs(one))' --evaluator 'hn=novelty(eval=hrb1)' --evaluator 'hlm2=lmcount(lm_rhw(reasonable_orders=true),transform=adapt_costs(plusone),pref=true)' --evaluator 'hrb2=RB(dag=from_coloring,extract_plan=true,transform=adapt_costs(plusone))' --search 'iterated([lazy(open=alt([tiebreaking([hn,hrb1]),single(hrb1,pref_only=true),single(hlm1),single(hlm1,pref_only=true)],boost=1000),preferred=[hrb1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hrb2,hlm2],preferred=[hrb2,hlm2],reopen_closed=false),lazy_wastar([hrb2,hlm2],preferred=[hrb2,hlm2],w=5),lazy_wastar([hrb2,hlm2],preferred=[hrb2,hlm2],w=3),lazy_wastar([hrb2,hlm2],preferred=[hrb2,hlm2],w=2),lazy_wastar([hrb2,hlm2],preferred=[hrb2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)' --always --internal-plan-file sas_plan < output.sas
+reading input... [t=3.772e-05s]
+done reading input! [t=0.143283s]
+Initializing landmarks count heuristic...
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.171637s
+Discovered 15 landmarks, of which 3 are disjunctive and 0 are conjunctive 
+15 edges
+Simplifying 136132 unary operators... done! [130228 unary operators]
+time to simplify: 0.106776s
+Initializing additive heuristic...
+Initializing FF heuristic...
+Initializing extended DTGs
+Initializing Red-Black Fact Following heuristic...
+Initializing novelty heuristic...
+Initializing landmarks count heuristic...
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.146919s
+Discovered 15 landmarks, of which 3 are disjunctive and 0 are conjunctive 
+15 edges
+Simplifying 136132 unary operators... done! [130228 unary operators]
+time to simplify: 0.117152s
+Initializing additive heuristic...
+Initializing FF heuristic...
+Initializing extended DTGs
+Initializing Red-Black Fact Following heuristic...
+Building successor generator...done! [t=0.766376s]
+peak memory difference for successor generator creation: 0 KB
+time for successor generation creation: 0.0137174s
+Variables: 12
+FactPairs: 200
+Bytes per state: 8
+Building successor generator...done! [t=0.76723s]
+peak memory difference for successor generator creation: 0 KB
+time for successor generation creation: 8.32e-07s
+Variables: 12
+FactPairs: 200
+Bytes per state: 8
+Starting search: lazy(open = alt(list(tiebreaking(list(hn, hrb1)), single(hrb1, pref_only = true), single(hlm1), single(hlm1, pref_only = true)), boost = 1000), preferred = list(hrb1, hlm1), cost_type = one, reopen_closed = false)
+Conducting lazy best first search, (real) bound = 2147483647
+8 initial landmarks, 4 goal landmarks
+Attempting to extract plan from the heuristic
+Running A* instead of Dijkstra. Using the distances ignoring outside conditions for heuristic estimates.
+Initializing Red-Black task...
+Initializing Red-Black task core...
+Adding 68068 operators to extended DTGs
+Checking invertibility...
+Done checking invertibility
+Number of invertible variables is 4
+Checking connectivity...
+Done checking connectivity
+Finished initializing Red-Black task core at time step [t=1.76562s]
+Total number of invertible variables is 4
+Invertible variables connection status: building causal graph...done! [t=0.00517617s]
+0
+Invertible variables without leafs connection status: 0
+Invertible variables with one directional connection status: 0
+Setting black variables...
+Use connected is set to False
+---------------------------------------------------------------------------------------
+{ Atom stopped(robot-03), NegatedAtom stopped(robot-03) } is not invertible, marked red [0 side effects]
+{ Atom stopped(robot-02), NegatedAtom stopped(robot-02) } is not invertible, marked red [0 side effects]
+{ Atom stopped(robot-01), NegatedAtom stopped(robot-01) } is not invertible, marked red [0 side effects]
+{ Atom stopped(robot-00), NegatedAtom stopped(robot-00) } is not invertible, marked red [0 side effects]
+{ Atom battery(robot-03, battery-0000), Atom battery(robot-03, battery-0001), Atom battery(robot-03, battery-0002), Atom battery(robot-03, battery-0003), Atom battery(robot-03, battery-0004), Atom battery(robot-03, battery-0005), Atom battery(robot-03, battery-0006), Atom battery(robot-03, battery-0007), Atom battery(robot-03, battery-0008), Atom battery(robot-03, battery-0009), Atom battery(robot-03, battery-0010), Atom battery(robot-03, battery-0011), Atom battery(robot-03, battery-0012) } is not invertible, marked red [4 side effects]
+{ Atom battery(robot-00, battery-0000), Atom battery(robot-00, battery-0001), Atom battery(robot-00, battery-0002), Atom battery(robot-00, battery-0003), Atom battery(robot-00, battery-0004), Atom battery(robot-00, battery-0005), Atom battery(robot-00, battery-0006), Atom battery(robot-00, battery-0007), Atom battery(robot-00, battery-0008), Atom battery(robot-00, battery-0009), Atom battery(robot-00, battery-0010), Atom battery(robot-00, battery-0011), Atom battery(robot-00, battery-0012) } is not invertible, marked red [4 side effects]
+{ Atom battery(robot-01, battery-0000), Atom battery(robot-01, battery-0001), Atom battery(robot-01, battery-0002), Atom battery(robot-01, battery-0003), Atom battery(robot-01, battery-0004), Atom battery(robot-01, battery-0005), Atom battery(robot-01, battery-0006), Atom battery(robot-01, battery-0007), Atom battery(robot-01, battery-0008), Atom battery(robot-01, battery-0009), Atom battery(robot-01, battery-0010), Atom battery(robot-01, battery-0011), Atom battery(robot-01, battery-0012) } is not invertible, marked red [4 side effects]
+{ Atom battery(robot-02, battery-0000), Atom battery(robot-02, battery-0001), Atom battery(robot-02, battery-0002), Atom battery(robot-02, battery-0003), Atom battery(robot-02, battery-0004), Atom battery(robot-02, battery-0005), Atom battery(robot-02, battery-0006), Atom battery(robot-02, battery-0007), Atom battery(robot-02, battery-0008), Atom battery(robot-02, battery-0009), Atom battery(robot-02, battery-0010), Atom battery(robot-02, battery-0011), Atom battery(robot-02, battery-0012) } is not invertible, marked red [4 side effects]
+{ Atom at(robot-03, location-0000), Atom at(robot-03, location-0001), Atom at(robot-03, location-0002), Atom at(robot-03, location-0003), Atom at(robot-03, location-0004), Atom at(robot-03, location-0005), Atom at(robot-03, location-0006), Atom at(robot-03, location-0007), Atom at(robot-03, location-0008), Atom at(robot-03, location-0009), Atom at(robot-03, location-0010), Atom at(robot-03, location-0011), Atom at(robot-03, location-0012), Atom at(robot-03, location-0013), Atom at(robot-03, location-0014), Atom at(robot-03, location-0015), Atom at(robot-03, location-0016), Atom at(robot-03, location-0017), Atom at(robot-03, location-0018), Atom at(robot-03, location-0019), Atom at(robot-03, location-0020), Atom at(robot-03, location-0021), Atom at(robot-03, location-0022), Atom at(robot-03, location-0023), Atom at(robot-03, location-0024), Atom at(robot-03, location-0025), Atom at(robot-03, location-0026), Atom at(robot-03, location-0027), Atom at(robot-03, location-0028), Atom at(robot-03, location-0029), Atom at(robot-03, location-0030), Atom at(robot-03, location-0031), Atom at(robot-03, location-0032), Atom at(robot-03, location-0033), Atom at(robot-03, location-0034) } is invertible, marked black [1 side effects]
+{ Atom at(robot-00, location-0000), Atom at(robot-00, location-0001), Atom at(robot-00, location-0002), Atom at(robot-00, location-0003), Atom at(robot-00, location-0004), Atom at(robot-00, location-0005), Atom at(robot-00, location-0006), Atom at(robot-00, location-0007), Atom at(robot-00, location-0008), Atom at(robot-00, location-0009), Atom at(robot-00, location-0010), Atom at(robot-00, location-0011), Atom at(robot-00, location-0012), Atom at(robot-00, location-0013), Atom at(robot-00, location-0014), Atom at(robot-00, location-0015), Atom at(robot-00, location-0016), Atom at(robot-00, location-0017), Atom at(robot-00, location-0018), Atom at(robot-00, location-0019), Atom at(robot-00, location-0020), Atom at(robot-00, location-0021), Atom at(robot-00, location-0022), Atom at(robot-00, location-0023), Atom at(robot-00, location-0024), Atom at(robot-00, location-0025), Atom at(robot-00, location-0026), Atom at(robot-00, location-0027), Atom at(robot-00, location-0028), Atom at(robot-00, location-0029), Atom at(robot-00, location-0030), Atom at(robot-00, location-0031), Atom at(robot-00, location-0032), Atom at(robot-00, location-0033), Atom at(robot-00, location-0034) } is invertible, marked black [1 side effects]
+{ Atom at(robot-01, location-0000), Atom at(robot-01, location-0001), Atom at(robot-01, location-0002), Atom at(robot-01, location-0003), Atom at(robot-01, location-0004), Atom at(robot-01, location-0005), Atom at(robot-01, location-0006), Atom at(robot-01, location-0007), Atom at(robot-01, location-0008), Atom at(robot-01, location-0009), Atom at(robot-01, location-0010), Atom at(robot-01, location-0011), Atom at(robot-01, location-0012), Atom at(robot-01, location-0013), Atom at(robot-01, location-0014), Atom at(robot-01, location-0015), Atom at(robot-01, location-0016), Atom at(robot-01, location-0017), Atom at(robot-01, location-0018), Atom at(robot-01, location-0019), Atom at(robot-01, location-0020), Atom at(robot-01, location-0021), Atom at(robot-01, location-0022), Atom at(robot-01, location-0023), Atom at(robot-01, location-0024), Atom at(robot-01, location-0025), Atom at(robot-01, location-0026), Atom at(robot-01, location-0027), Atom at(robot-01, location-0028), Atom at(robot-01, location-0029), Atom at(robot-01, location-0030), Atom at(robot-01, location-0031), Atom at(robot-01, location-0032), Atom at(robot-01, location-0033), Atom at(robot-01, location-0034) } is invertible, marked black [1 side effects]
+{ Atom at(robot-02, location-0000), Atom at(robot-02, location-0001), Atom at(robot-02, location-0002), Atom at(robot-02, location-0003), Atom at(robot-02, location-0004), Atom at(robot-02, location-0005), Atom at(robot-02, location-0006), Atom at(robot-02, location-0007), Atom at(robot-02, location-0008), Atom at(robot-02, location-0009), Atom at(robot-02, location-0010), Atom at(robot-02, location-0011), Atom at(robot-02, location-0012), Atom at(robot-02, location-0013), Atom at(robot-02, location-0014), Atom at(robot-02, location-0015), Atom at(robot-02, location-0016), Atom at(robot-02, location-0017), Atom at(robot-02, location-0018), Atom at(robot-02, location-0019), Atom at(robot-02, location-0020), Atom at(robot-02, location-0021), Atom at(robot-02, location-0022), Atom at(robot-02, location-0023), Atom at(robot-02, location-0024), Atom at(robot-02, location-0025), Atom at(robot-02, location-0026), Atom at(robot-02, location-0027), Atom at(robot-02, location-0028), Atom at(robot-02, location-0029), Atom at(robot-02, location-0030), Atom at(robot-02, location-0031), Atom at(robot-02, location-0032), Atom at(robot-02, location-0033), Atom at(robot-02, location-0034) } is invertible, marked black [1 side effects]
+---------------------------------------------------------------------------------------
+Total number of black variables is 4
+Total number of black root variables is 0
+Total number of variables is 12
+Total number of variables with all pairs of values connected is 0
+Total number of variables with all values connected to goal is 0
+Total number of black variables with strongly connected parents only is 0
+Maximal number of side effects for black variable is 1
+---------------------------------------------------------------------------------------
+Black DAG usage status: 0
+Finished initializing Red-Black task at time step [t=1.77831s]
+Counting red preconditions..
+Preparing for red fact following..
+Setting use black reachable for black variables..
+Keeping achieving operators for red facts..
+Initializing black variables...
+Adding edges to forward graph, for the later calculation of missing values
+Precalculating all pair shortest paths
+Plan extraction: 1
+Finished initializing Red-Black Fact Following heuristic at time step [t=2.87539s]
+New best heuristic value for novelty(eval = hrb1): 0
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = true): 7
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 13
+[g=0, 1 evaluated, 0 expanded, t=2.87777s, 135984 KB]
+Initial heuristic value for novelty(eval = hrb1): 0
+Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = true): 7
+Initial heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 13
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = true): 6
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 12
+[g=1, 2 evaluated, 1 expanded, t=2.88084s, 135984 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = true): 5
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 11
+[g=2, 3 evaluated, 2 expanded, t=2.88365s, 135984 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = true): 4
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 10
+[g=3, 4 evaluated, 3 expanded, t=2.88809s, 136116 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = true): 3
+[g=6, 72 evaluated, 71 expanded, t=3.32755s, 136116 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = true): 2
+[g=8, 94 evaluated, 93 expanded, t=3.47568s, 136116 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 9
+[g=4, 120 evaluated, 118 expanded, t=3.60595s, 136116 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = true): 1
+[g=10, 162 evaluated, 159 expanded, t=3.78121s, 136116 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 8
+[g=12, 250 evaluated, 243 expanded, t=4.06909s, 136116 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 7
+[g=13, 264 evaluated, 256 expanded, t=4.11999s, 136116 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 6
+[g=14, 279 evaluated, 270 expanded, t=4.16809s, 136116 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 5
+[g=15, 300 evaluated, 289 expanded, t=4.23739s, 136116 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 4
+[g=18, 1215 evaluated, 1095 expanded, t=7.51304s, 136252 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 3
+[g=17, 6407 evaluated, 5296 expanded, t=28.9509s, 137176 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 2
+[g=19, 23743 evaluated, 19919 expanded, t=93.7386s, 139780 KB]
+Cost to: 14, cost from: 6 the total is: 20
+Solution found by the heuristic!
+Cost to: 14, cost from: 6 the total is: 20
+Solution found by the heuristic!
+Actual search time: 604.637s [t=605.405s]
+recharge robot-03 robot-02 location-0018 battery-0002 battery-0001 battery-0000 battery-0001 (1)
+move robot-03 location-0018 location-0002 battery-0001 battery-0000 (1)
+move robot-02 location-0018 location-0007 battery-0001 battery-0000 (1)
+move robot-00 location-0018 location-0007 battery-0009 battery-0008 (1)
+recharge robot-00 robot-02 location-0007 battery-0008 battery-0007 battery-0000 battery-0001 (1)
+move robot-01 location-0018 location-0007 battery-0001 battery-0000 (1)
+recharge robot-00 robot-01 location-0007 battery-0007 battery-0006 battery-0000 battery-0001 (1)
+recharge robot-00 robot-01 location-0007 battery-0006 battery-0005 battery-0001 battery-0002 (1)
+move robot-01 location-0007 location-0012 battery-0002 battery-0001 (1)
+recharge robot-00 robot-02 location-0007 battery-0005 battery-0004 battery-0001 battery-0002 (1)
+recharge robot-00 robot-02 location-0007 battery-0004 battery-0003 battery-0002 battery-0003 (1)
+recharge robot-00 robot-02 location-0007 battery-0003 battery-0002 battery-0003 battery-0004 (1)
+move robot-00 location-0007 location-0012 battery-0002 battery-0001 (1)
+recharge robot-00 robot-01 location-0012 battery-0001 battery-0000 battery-0001 battery-0002 (1)
+move robot-01 location-0012 location-0026 battery-0002 battery-0001 (1)
+move robot-01 location-0026 location-0011 battery-0001 battery-0000 (1)
+move robot-02 location-0007 location-0023 battery-0004 battery-0003 (1)
+move robot-02 location-0023 location-0030 battery-0003 battery-0002 (1)
+move robot-02 location-0030 location-0027 battery-0002 battery-0001 (1)
+move robot-02 location-0027 location-0034 battery-0001 battery-0000 (1)
+Plan length: 20 step(s).
+Plan cost: 20
+Expanded 109148 state(s).
+Reopened 0 state(s).
+Evaluated 128185 state(s).
+Evaluations: 237334
+Generated 988138 state(s).
+Dead ends: 19036 state(s).
+Number of registered states: 128185
+Int hash set load factor: 128185/262144 = 0.488987
+Int hash set resizes: 18
+Best solution cost so far: 20
+Solution found - keep searching
+Building successor generator...done! [t=605.409s]
+peak memory difference for successor generator creation: 0 KB
+time for successor generation creation: 2.264e-06s
+Variables: 12
+FactPairs: 200
+Bytes per state: 8
+Starting search: lazy_greedy(list(hrb2, hlm2), preferred = list(hrb2, hlm2), reopen_closed = false)
+Conducting lazy best first search, (real) bound = 20
+8 initial landmarks, 4 goal landmarks
+Attempting to extract plan from the heuristic
+Running A* instead of Dijkstra. Using the distances ignoring outside conditions for heuristic estimates.
+Initializing Red-Black task...
+Initializing Red-Black task core...
+Adding 68068 operators to extended DTGs
+Checking invertibility...
+Done checking invertibility
+Number of invertible variables is 4
+Checking connectivity...
+Done checking connectivity
+Finished initializing Red-Black task core at time step [t=606.43s]
+Total number of invertible variables is 4
+Invertible variables connection status: building causal graph...done! [t=0.00503932s]
+0
+Invertible variables without leafs connection status: 0
+Invertible variables with one directional connection status: 0
+Setting black variables...
+Use connected is set to False
+---------------------------------------------------------------------------------------
+{ Atom stopped(robot-03), NegatedAtom stopped(robot-03) } is not invertible, marked red [0 side effects]
+{ Atom stopped(robot-02), NegatedAtom stopped(robot-02) } is not invertible, marked red [0 side effects]
+{ Atom stopped(robot-01), NegatedAtom stopped(robot-01) } is not invertible, marked red [0 side effects]
+{ Atom stopped(robot-00), NegatedAtom stopped(robot-00) } is not invertible, marked red [0 side effects]
+{ Atom battery(robot-03, battery-0000), Atom battery(robot-03, battery-0001), Atom battery(robot-03, battery-0002), Atom battery(robot-03, battery-0003), Atom battery(robot-03, battery-0004), Atom battery(robot-03, battery-0005), Atom battery(robot-03, battery-0006), Atom battery(robot-03, battery-0007), Atom battery(robot-03, battery-0008), Atom battery(robot-03, battery-0009), Atom battery(robot-03, battery-0010), Atom battery(robot-03, battery-0011), Atom battery(robot-03, battery-0012) } is not invertible, marked red [4 side effects]
+{ Atom battery(robot-00, battery-0000), Atom battery(robot-00, battery-0001), Atom battery(robot-00, battery-0002), Atom battery(robot-00, battery-0003), Atom battery(robot-00, battery-0004), Atom battery(robot-00, battery-0005), Atom battery(robot-00, battery-0006), Atom battery(robot-00, battery-0007), Atom battery(robot-00, battery-0008), Atom battery(robot-00, battery-0009), Atom battery(robot-00, battery-0010), Atom battery(robot-00, battery-0011), Atom battery(robot-00, battery-0012) } is not invertible, marked red [4 side effects]
+{ Atom battery(robot-01, battery-0000), Atom battery(robot-01, battery-0001), Atom battery(robot-01, battery-0002), Atom battery(robot-01, battery-0003), Atom battery(robot-01, battery-0004), Atom battery(robot-01, battery-0005), Atom battery(robot-01, battery-0006), Atom battery(robot-01, battery-0007), Atom battery(robot-01, battery-0008), Atom battery(robot-01, battery-0009), Atom battery(robot-01, battery-0010), Atom battery(robot-01, battery-0011), Atom battery(robot-01, battery-0012) } is not invertible, marked red [4 side effects]
+{ Atom battery(robot-02, battery-0000), Atom battery(robot-02, battery-0001), Atom battery(robot-02, battery-0002), Atom battery(robot-02, battery-0003), Atom battery(robot-02, battery-0004), Atom battery(robot-02, battery-0005), Atom battery(robot-02, battery-0006), Atom battery(robot-02, battery-0007), Atom battery(robot-02, battery-0008), Atom battery(robot-02, battery-0009), Atom battery(robot-02, battery-0010), Atom battery(robot-02, battery-0011), Atom battery(robot-02, battery-0012) } is not invertible, marked red [4 side effects]
+{ Atom at(robot-03, location-0000), Atom at(robot-03, location-0001), Atom at(robot-03, location-0002), Atom at(robot-03, location-0003), Atom at(robot-03, location-0004), Atom at(robot-03, location-0005), Atom at(robot-03, location-0006), Atom at(robot-03, location-0007), Atom at(robot-03, location-0008), Atom at(robot-03, location-0009), Atom at(robot-03, location-0010), Atom at(robot-03, location-0011), Atom at(robot-03, location-0012), Atom at(robot-03, location-0013), Atom at(robot-03, location-0014), Atom at(robot-03, location-0015), Atom at(robot-03, location-0016), Atom at(robot-03, location-0017), Atom at(robot-03, location-0018), Atom at(robot-03, location-0019), Atom at(robot-03, location-0020), Atom at(robot-03, location-0021), Atom at(robot-03, location-0022), Atom at(robot-03, location-0023), Atom at(robot-03, location-0024), Atom at(robot-03, location-0025), Atom at(robot-03, location-0026), Atom at(robot-03, location-0027), Atom at(robot-03, location-0028), Atom at(robot-03, location-0029), Atom at(robot-03, location-0030), Atom at(robot-03, location-0031), Atom at(robot-03, location-0032), Atom at(robot-03, location-0033), Atom at(robot-03, location-0034) } is invertible, marked black [1 side effects]
+{ Atom at(robot-00, location-0000), Atom at(robot-00, location-0001), Atom at(robot-00, location-0002), Atom at(robot-00, location-0003), Atom at(robot-00, location-0004), Atom at(robot-00, location-0005), Atom at(robot-00, location-0006), Atom at(robot-00, location-0007), Atom at(robot-00, location-0008), Atom at(robot-00, location-0009), Atom at(robot-00, location-0010), Atom at(robot-00, location-0011), Atom at(robot-00, location-0012), Atom at(robot-00, location-0013), Atom at(robot-00, location-0014), Atom at(robot-00, location-0015), Atom at(robot-00, location-0016), Atom at(robot-00, location-0017), Atom at(robot-00, location-0018), Atom at(robot-00, location-0019), Atom at(robot-00, location-0020), Atom at(robot-00, location-0021), Atom at(robot-00, location-0022), Atom at(robot-00, location-0023), Atom at(robot-00, location-0024), Atom at(robot-00, location-0025), Atom at(robot-00, location-0026), Atom at(robot-00, location-0027), Atom at(robot-00, location-0028), Atom at(robot-00, location-0029), Atom at(robot-00, location-0030), Atom at(robot-00, location-0031), Atom at(robot-00, location-0032), Atom at(robot-00, location-0033), Atom at(robot-00, location-0034) } is invertible, marked black [1 side effects]
+{ Atom at(robot-01, location-0000), Atom at(robot-01, location-0001), Atom at(robot-01, location-0002), Atom at(robot-01, location-0003), Atom at(robot-01, location-0004), Atom at(robot-01, location-0005), Atom at(robot-01, location-0006), Atom at(robot-01, location-0007), Atom at(robot-01, location-0008), Atom at(robot-01, location-0009), Atom at(robot-01, location-0010), Atom at(robot-01, location-0011), Atom at(robot-01, location-0012), Atom at(robot-01, location-0013), Atom at(robot-01, location-0014), Atom at(robot-01, location-0015), Atom at(robot-01, location-0016), Atom at(robot-01, location-0017), Atom at(robot-01, location-0018), Atom at(robot-01, location-0019), Atom at(robot-01, location-0020), Atom at(robot-01, location-0021), Atom at(robot-01, location-0022), Atom at(robot-01, location-0023), Atom at(robot-01, location-0024), Atom at(robot-01, location-0025), Atom at(robot-01, location-0026), Atom at(robot-01, location-0027), Atom at(robot-01, location-0028), Atom at(robot-01, location-0029), Atom at(robot-01, location-0030), Atom at(robot-01, location-0031), Atom at(robot-01, location-0032), Atom at(robot-01, location-0033), Atom at(robot-01, location-0034) } is invertible, marked black [1 side effects]
+{ Atom at(robot-02, location-0000), Atom at(robot-02, location-0001), Atom at(robot-02, location-0002), Atom at(robot-02, location-0003), Atom at(robot-02, location-0004), Atom at(robot-02, location-0005), Atom at(robot-02, location-0006), Atom at(robot-02, location-0007), Atom at(robot-02, location-0008), Atom at(robot-02, location-0009), Atom at(robot-02, location-0010), Atom at(robot-02, location-0011), Atom at(robot-02, location-0012), Atom at(robot-02, location-0013), Atom at(robot-02, location-0014), Atom at(robot-02, location-0015), Atom at(robot-02, location-0016), Atom at(robot-02, location-0017), Atom at(robot-02, location-0018), Atom at(robot-02, location-0019), Atom at(robot-02, location-0020), Atom at(robot-02, location-0021), Atom at(robot-02, location-0022), Atom at(robot-02, location-0023), Atom at(robot-02, location-0024), Atom at(robot-02, location-0025), Atom at(robot-02, location-0026), Atom at(robot-02, location-0027), Atom at(robot-02, location-0028), Atom at(robot-02, location-0029), Atom at(robot-02, location-0030), Atom at(robot-02, location-0031), Atom at(robot-02, location-0032), Atom at(robot-02, location-0033), Atom at(robot-02, location-0034) } is invertible, marked black [1 side effects]
+---------------------------------------------------------------------------------------
+Total number of black variables is 4
+Total number of black root variables is 0
+Total number of variables is 12
+Total number of variables with all pairs of values connected is 0
+Total number of variables with all values connected to goal is 0
+Total number of black variables with strongly connected parents only is 0
+Maximal number of side effects for black variable is 1
+---------------------------------------------------------------------------------------
+Black DAG usage status: 0
+Finished initializing Red-Black task at time step [t=606.443s]
+Counting red preconditions..
+Preparing for red fact following..
+Setting use black reachable for black variables..
+Keeping achieving operators for red facts..
+Initializing black variables...
+Adding edges to forward graph, for the later calculation of missing values
+Precalculating all pair shortest paths
+Plan extraction: 1
+Finished initializing Red-Black Fact Following heuristic at time step [t=607.529s]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 14
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 26
+[g=0, 1 evaluated, 0 expanded, t=607.532s, 188164 KB]
+Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 14
+Initial heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 26
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 12
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 24
+[g=1, 2 evaluated, 1 expanded, t=607.535s, 188164 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 10
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 22
+[g=2, 4 evaluated, 3 expanded, t=607.545s, 188164 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 8
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 20
+[g=3, 6 evaluated, 5 expanded, t=607.555s, 188164 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 18
+[g=5, 38 evaluated, 37 expanded, t=607.833s, 188164 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 16
+[g=6, 44 evaluated, 43 expanded, t=607.878s, 188164 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 6
+[g=7, 47 evaluated, 46 expanded, t=607.896s, 188164 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 14
+[g=8, 52 evaluated, 51 expanded, t=607.914s, 188164 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 4
+[g=9, 55 evaluated, 54 expanded, t=607.937s, 188164 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 12
+[g=12, 66 evaluated, 65 expanded, t=607.988s, 188164 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 2
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 10
+[g=13, 70 evaluated, 69 expanded, t=608.013s, 188164 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 8
+[g=17, 2996 evaluated, 2529 expanded, t=628.368s, 188824 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 6
+[g=18, 6632 evaluated, 5599 expanded, t=656.754s, 189488 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 4
+[g=19, 18728 evaluated, 14493 expanded, t=707.563s, 191172 KB]
+Peak memory: 809584 KB
+caught signal 2 -- exiting

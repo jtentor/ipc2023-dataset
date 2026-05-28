@@ -1,0 +1,621 @@
+['translate', 'transform_task', 'search']
+translate
+['translate', 'transform_task', 'search']
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python3 /workspace/cerberus/builds/release/bin/translate/translate.py domain.pddl p01.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.000s CPU, 0.001s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.010s CPU, 0.003s wall-clock]
+Preparing model... [0.000s CPU, 0.001s wall-clock]
+Generated 48 rules.
+Computing model... [0.140s CPU, 0.144s wall-clock]
+25882 relevant atoms
+6987 auxiliary atoms
+32869 final queue length
+87850 total queue pushes
+Completing instantiation... [0.680s CPU, 0.673s wall-clock]
+Instantiating: [0.830s CPU, 0.825s wall-clock]
+Computing fact groups...
+Finding invariants...
+12 initial candidates
+Finding invariants: [0.010s CPU, 0.012s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+33 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.010s CPU, 0.013s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.030s CPU, 0.027s wall-clock]
+Translating task: [0.470s CPU, 0.470s wall-clock]
+0 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+6 propositions removed
+Detecting unreachable propositions: [0.280s CPU, 0.291s wall-clock]
+Reordering and filtering variables...
+9 of 39 variables necessary.
+0 of 6 mutex groups necessary.
+18234 of 18234 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.050s CPU, 0.048s wall-clock]
+Translator variables: 9
+Translator derived variables: 0
+Translator facts: 126
+Translator goal facts: 3
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 18234
+Translator axioms: 0
+Translator task size: 123942
+Translator peak memory: 117716 KB
+Writing output... [0.090s CPU, 0.086s wall-clock]
+Done! [1.760s CPU, 1.760s wall-clock]
+
+translate exit code: 0
+INFO     Run task transformation (preprocess).
+INFO     Absolute path: /workspace/cerberus/builds/release/bin/preprocess
+INFO     transform_task stdin: output.sas
+INFO     transform_task time limit: None
+INFO     transform_task memory limit: None
+INFO     transform_task command line string: /workspace/cerberus/builds/release/bin/preprocess < output.sas
+Building causal graph...
+The causal graph is not acyclic.
+9 variables of 9 necessary
+0 of 0 mutex groups necessary.
+18234 of 18234 operators necessary.
+0 of 0 axiom rules necessary.
+Initializing mutex computation...
+Mutex computation initialized with 126 fluents.
+iteration for mutex detection and operator pruning
+Initialize m_index fw
+Initialized mvalues forward: reached=81, notReached=12909, spurious=2886
+Initialize m_ops fw
+Computing mutexes...
+Mutex computation finished with reached=12990, notReached=0, spurious=2886
+0 operators are spurious because were not triggered
+H^2 mutexes added fw: 0, unreachable: 0
+0 of 18234 operators detected as spurious
+iteration for mutex detection and operator pruning
+Initialize m_index bw
+Init values regression
+Initialized mvalues backward: reached=1245, notReached=11745, spurious=2886
+Initialize m_ops bw
+Computing mutexes...
+Mutex computation finished with reached=12816, notReached=174, spurious=2886
+87 operators are spurious because were not triggered
+H^2 mutexes added bw: 174, unreachable: 0
+0 of 18147 operators detected as spurious
+iteration for mutex detection and operator pruning
+Initialize m_index fw
+Initialized mvalues forward: reached=81, notReached=12735, spurious=3060
+Initialize m_ops fw
+Computing mutexes...
+Mutex computation finished with reached=12816, notReached=0, spurious=3060
+0 operators are spurious because were not triggered
+H^2 mutexes added fw: 0, unreachable: 0
+0 of 18147 operators detected as spurious
+Total mutex and disambiguation time: 0.206585 iterations: 3
+87 of 87 mutex groups necessary.
+18147 of 18234 operators necessary.
+0 of 0 axiom rules necessary.
+Change id of operators: 18147
+Change id of mutexes
+Change id of goals
+Change id of initial state
+Remove unreachable facts from variables: 9
+87 of 87 mutex groups necessary.
+18147 of 18147 operators necessary.
+0 of 0 axiom rules necessary.
+Updating causal graph and pruning unnecessary facts
+9 variables of 9 of 9 necessary
+The causal graph is not acyclic.
+9 variables of 9 necessary
+87 of 87 mutex groups necessary.
+18147 of 18147 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor variables: 9
+Preprocessor facts: 126
+Preprocessor derived variables: 0
+Preprocessor operators: 18147
+Preprocessor mutex groups: 87
+Preprocessor task size: 123768
+Writing output...
+done
+
+transform_task exit code: 0
+INFO     Running search (release).
+INFO     search stdin: output.sas
+INFO     search time limit: None
+INFO     search memory limit: None
+INFO     search command line string: /workspace/cerberus/builds/release/bin/downward --if-unit-cost --evaluator 'hlm=lmcount(lm_rhw(reasonable_orders=true),pref=true)' --evaluator 'hrb=RB(dag=from_coloring,extract_plan=true)' --evaluator 'hn=novelty(eval=hrb)' --search 'iterated([lazy(open=alt([tiebreaking([hn,hrb]),single(hrb,pref_only=true),single(hlm),single(hlm,pref_only=true)],boost=1000),preferred=[hrb,hlm]),lazy_wastar([hrb,hlm],preferred=[hrb,hlm],w=5),lazy_wastar([hrb,hlm],preferred=[hrb,hlm],w=3),lazy_wastar([hrb,hlm],preferred=[hrb,hlm],w=2),lazy_wastar([hrb,hlm],preferred=[hrb,hlm],w=1)],repeat_last=true,continue_on_fail=true)' --if-non-unit-cost --evaluator 'hlm1=lmcount(lm_rhw(reasonable_orders=true),transform=adapt_costs(one),pref=true)' --evaluator 'hrb1=RB(dag=from_coloring,extract_plan=true,transform=adapt_costs(one))' --evaluator 'hn=novelty(eval=hrb1)' --evaluator 'hlm2=lmcount(lm_rhw(reasonable_orders=true),transform=adapt_costs(plusone),pref=true)' --evaluator 'hrb2=RB(dag=from_coloring,extract_plan=true,transform=adapt_costs(plusone))' --search 'iterated([lazy(open=alt([tiebreaking([hn,hrb1]),single(hrb1,pref_only=true),single(hlm1),single(hlm1,pref_only=true)],boost=1000),preferred=[hrb1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hrb2,hlm2],preferred=[hrb2,hlm2],reopen_closed=false),lazy_wastar([hrb2,hlm2],preferred=[hrb2,hlm2],w=5),lazy_wastar([hrb2,hlm2],preferred=[hrb2,hlm2],w=3),lazy_wastar([hrb2,hlm2],preferred=[hrb2,hlm2],w=2),lazy_wastar([hrb2,hlm2],preferred=[hrb2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)' --always --internal-plan-file sas_plan < output.sas
+reading input... [t=2.3734e-05s]
+done reading input! [t=0.0370055s]
+Initializing landmarks count heuristic...
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.0240738s
+Discovered 10 landmarks, of which 1 are disjunctive and 0 are conjunctive 
+8 edges
+Simplifying 36291 unary operators... done! [33537 unary operators]
+time to simplify: 0.0170372s
+Initializing additive heuristic...
+Initializing FF heuristic...
+Initializing extended DTGs
+Initializing Red-Black Fact Following heuristic...
+Initializing novelty heuristic...
+Initializing landmarks count heuristic...
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.0177643s
+Discovered 10 landmarks, of which 1 are disjunctive and 0 are conjunctive 
+8 edges
+Simplifying 36291 unary operators... done! [33537 unary operators]
+time to simplify: 0.0176891s
+Initializing additive heuristic...
+Initializing FF heuristic...
+Initializing extended DTGs
+Initializing Red-Black Fact Following heuristic...
+Building successor generator...done! [t=0.132076s]
+peak memory difference for successor generator creation: 0 KB
+time for successor generation creation: 0.00332636s
+Variables: 9
+FactPairs: 126
+Bytes per state: 4
+Building successor generator...done! [t=0.132428s]
+peak memory difference for successor generator creation: 0 KB
+time for successor generation creation: 8.11e-07s
+Variables: 9
+FactPairs: 126
+Bytes per state: 4
+Starting search: lazy(open = alt(list(tiebreaking(list(hn, hrb1)), single(hrb1, pref_only = true), single(hlm1), single(hlm1, pref_only = true)), boost = 1000), preferred = list(hrb1, hlm1), cost_type = one, reopen_closed = false)
+Conducting lazy best first search, (real) bound = 2147483647
+6 initial landmarks, 3 goal landmarks
+Attempting to extract plan from the heuristic
+Running A* instead of Dijkstra. Using the distances ignoring outside conditions for heuristic estimates.
+Initializing Red-Black task...
+Initializing Red-Black task core...
+Adding 18147 operators to extended DTGs
+Checking invertibility...
+Done checking invertibility
+Number of invertible variables is 3
+Checking connectivity...
+Done checking connectivity
+Finished initializing Red-Black task core at time step [t=0.25732s]
+Total number of invertible variables is 3
+Invertible variables connection status: building causal graph...done! [t=0.00134659s]
+0
+Invertible variables without leafs connection status: 0
+Invertible variables with one directional connection status: 0
+Setting black variables...
+Use connected is set to False
+---------------------------------------------------------------------------------------
+{ Atom stopped(robot-02), NegatedAtom stopped(robot-02) } is not invertible, marked red [0 side effects]
+{ Atom stopped(robot-01), NegatedAtom stopped(robot-01) } is not invertible, marked red [0 side effects]
+{ Atom stopped(robot-00), NegatedAtom stopped(robot-00) } is not invertible, marked red [0 side effects]
+{ Atom battery(robot-02, battery-0000), Atom battery(robot-02, battery-0001), Atom battery(robot-02, battery-0002), Atom battery(robot-02, battery-0003), Atom battery(robot-02, battery-0004), Atom battery(robot-02, battery-0005), Atom battery(robot-02, battery-0006), Atom battery(robot-02, battery-0007), Atom battery(robot-02, battery-0008), Atom battery(robot-02, battery-0009) } is not invertible, marked red [3 side effects]
+{ Atom battery(robot-00, battery-0000), Atom battery(robot-00, battery-0001), Atom battery(robot-00, battery-0002), Atom battery(robot-00, battery-0003), Atom battery(robot-00, battery-0004), Atom battery(robot-00, battery-0005), Atom battery(robot-00, battery-0006), Atom battery(robot-00, battery-0007), Atom battery(robot-00, battery-0008), Atom battery(robot-00, battery-0009) } is not invertible, marked red [3 side effects]
+{ Atom battery(robot-01, battery-0000), Atom battery(robot-01, battery-0001), Atom battery(robot-01, battery-0002), Atom battery(robot-01, battery-0003), Atom battery(robot-01, battery-0004), Atom battery(robot-01, battery-0005), Atom battery(robot-01, battery-0006), Atom battery(robot-01, battery-0007), Atom battery(robot-01, battery-0008), Atom battery(robot-01, battery-0009) } is not invertible, marked red [3 side effects]
+{ Atom at(robot-02, location-0000), Atom at(robot-02, location-0001), Atom at(robot-02, location-0002), Atom at(robot-02, location-0003), Atom at(robot-02, location-0004), Atom at(robot-02, location-0005), Atom at(robot-02, location-0006), Atom at(robot-02, location-0007), Atom at(robot-02, location-0008), Atom at(robot-02, location-0009), Atom at(robot-02, location-0010), Atom at(robot-02, location-0011), Atom at(robot-02, location-0012), Atom at(robot-02, location-0013), Atom at(robot-02, location-0014), Atom at(robot-02, location-0015), Atom at(robot-02, location-0016), Atom at(robot-02, location-0017), Atom at(robot-02, location-0018), Atom at(robot-02, location-0019), Atom at(robot-02, location-0020), Atom at(robot-02, location-0021), Atom at(robot-02, location-0022), Atom at(robot-02, location-0023), Atom at(robot-02, location-0024), Atom at(robot-02, location-0025), Atom at(robot-02, location-0026), Atom at(robot-02, location-0027), Atom at(robot-02, location-0028), Atom at(robot-02, location-0029) } is invertible, marked black [1 side effects]
+{ Atom at(robot-00, location-0000), Atom at(robot-00, location-0001), Atom at(robot-00, location-0002), Atom at(robot-00, location-0003), Atom at(robot-00, location-0004), Atom at(robot-00, location-0005), Atom at(robot-00, location-0006), Atom at(robot-00, location-0007), Atom at(robot-00, location-0008), Atom at(robot-00, location-0009), Atom at(robot-00, location-0010), Atom at(robot-00, location-0011), Atom at(robot-00, location-0012), Atom at(robot-00, location-0013), Atom at(robot-00, location-0014), Atom at(robot-00, location-0015), Atom at(robot-00, location-0016), Atom at(robot-00, location-0017), Atom at(robot-00, location-0018), Atom at(robot-00, location-0019), Atom at(robot-00, location-0020), Atom at(robot-00, location-0021), Atom at(robot-00, location-0022), Atom at(robot-00, location-0023), Atom at(robot-00, location-0024), Atom at(robot-00, location-0025), Atom at(robot-00, location-0026), Atom at(robot-00, location-0027), Atom at(robot-00, location-0028), Atom at(robot-00, location-0029) } is invertible, marked black [1 side effects]
+{ Atom at(robot-01, location-0000), Atom at(robot-01, location-0001), Atom at(robot-01, location-0002), Atom at(robot-01, location-0003), Atom at(robot-01, location-0004), Atom at(robot-01, location-0005), Atom at(robot-01, location-0006), Atom at(robot-01, location-0007), Atom at(robot-01, location-0008), Atom at(robot-01, location-0009), Atom at(robot-01, location-0010), Atom at(robot-01, location-0011), Atom at(robot-01, location-0012), Atom at(robot-01, location-0013), Atom at(robot-01, location-0014), Atom at(robot-01, location-0015), Atom at(robot-01, location-0016), Atom at(robot-01, location-0017), Atom at(robot-01, location-0018), Atom at(robot-01, location-0019), Atom at(robot-01, location-0020), Atom at(robot-01, location-0021), Atom at(robot-01, location-0022), Atom at(robot-01, location-0023), Atom at(robot-01, location-0024), Atom at(robot-01, location-0025), Atom at(robot-01, location-0026), Atom at(robot-01, location-0027), Atom at(robot-01, location-0028), Atom at(robot-01, location-0029) } is invertible, marked black [1 side effects]
+---------------------------------------------------------------------------------------
+Total number of black variables is 3
+Total number of black root variables is 0
+Total number of variables is 9
+Total number of variables with all pairs of values connected is 0
+Total number of variables with all values connected to goal is 0
+Total number of black variables with strongly connected parents only is 0
+Maximal number of side effects for black variable is 1
+---------------------------------------------------------------------------------------
+Black DAG usage status: 0
+Finished initializing Red-Black task at time step [t=0.259738s]
+Counting red preconditions..
+Preparing for red fact following..
+Setting use black reachable for black variables..
+Keeping achieving operators for red facts..
+Initializing black variables...
+Adding edges to forward graph, for the later calculation of missing values
+Precalculating all pair shortest paths
+Plan extraction: 1
+Finished initializing Red-Black Fact Following heuristic at time step [t=0.350303s]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = true): 4
+New best heuristic value for novelty(eval = hrb1): 0
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 10
+[g=0, 1 evaluated, 0 expanded, t=0.350807s, 51704 KB]
+Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = true): 4
+Initial heuristic value for novelty(eval = hrb1): 0
+Initial heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 10
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = true): 3
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 9
+[g=1, 3 evaluated, 2 expanded, t=0.354629s, 51704 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 8
+[g=2, 38 evaluated, 35 expanded, t=0.402733s, 51704 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 7
+[g=6, 251 evaluated, 246 expanded, t=0.594359s, 51704 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 6
+[g=8, 636 evaluated, 616 expanded, t=0.983533s, 51836 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 5
+[g=12, 875 evaluated, 852 expanded, t=1.17161s, 51836 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = true): 2
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 4
+[g=11, 1172 evaluated, 1142 expanded, t=1.42581s, 51836 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = true): 1
+[g=16, 4198 evaluated, 3740 expanded, t=4.21496s, 52364 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 3
+[g=18, 11615 evaluated, 10090 expanded, t=11.2992s, 53316 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(one)): 2
+[g=16, 41337 evaluated, 36688 expanded, t=41.3123s, 57260 KB]
+Cost to: 11, cost from: 5 the total is: 16
+Solution found by the heuristic!
+Cost to: 11, cost from: 5 the total is: 16
+Solution found by the heuristic!
+Actual search time: 102.587s [t=102.719s]
+recharge robot-00 robot-01 location-0027 battery-0008 battery-0007 battery-0000 battery-0001 (1)
+recharge robot-00 robot-02 location-0027 battery-0007 battery-0006 battery-0001 battery-0002 (1)
+recharge robot-00 robot-02 location-0027 battery-0006 battery-0005 battery-0002 battery-0003 (1)
+recharge robot-00 robot-02 location-0027 battery-0005 battery-0004 battery-0003 battery-0004 (1)
+move robot-02 location-0027 location-0015 battery-0004 battery-0003 (1)
+move robot-02 location-0015 location-0000 battery-0003 battery-0002 (1)
+move robot-02 location-0000 location-0001 battery-0002 battery-0001 (1)
+move robot-02 location-0001 location-0023 battery-0001 battery-0000 (1)
+recharge robot-00 robot-01 location-0027 battery-0004 battery-0003 battery-0001 battery-0002 (1)
+recharge robot-00 robot-01 location-0027 battery-0003 battery-0002 battery-0002 battery-0003 (1)
+recharge robot-00 robot-01 location-0027 battery-0002 battery-0001 battery-0003 battery-0004 (1)
+move robot-00 location-0027 location-0028 battery-0001 battery-0000 (1)
+move robot-01 location-0027 location-0026 battery-0004 battery-0003 (1)
+move robot-01 location-0026 location-0009 battery-0003 battery-0002 (1)
+move robot-01 location-0009 location-0021 battery-0002 battery-0001 (1)
+move robot-01 location-0021 location-0003 battery-0001 battery-0000 (1)
+Plan length: 16 step(s).
+Plan cost: 16
+Expanded 92704 state(s).
+Reopened 0 state(s).
+Evaluated 102685 state(s).
+Evaluations: 195390
+Generated 719678 state(s).
+Dead ends: 9980 state(s).
+Number of registered states: 102685
+Int hash set load factor: 102685/131072 = 0.783424
+Int hash set resizes: 17
+Best solution cost so far: 16
+Solution found - keep searching
+Building successor generator...done! [t=102.721s]
+peak memory difference for successor generator creation: 0 KB
+time for successor generation creation: 1.834e-06s
+Variables: 9
+FactPairs: 126
+Bytes per state: 4
+Starting search: lazy_greedy(list(hrb2, hlm2), preferred = list(hrb2, hlm2), reopen_closed = false)
+Conducting lazy best first search, (real) bound = 16
+6 initial landmarks, 3 goal landmarks
+Attempting to extract plan from the heuristic
+Running A* instead of Dijkstra. Using the distances ignoring outside conditions for heuristic estimates.
+Initializing Red-Black task...
+Initializing Red-Black task core...
+Adding 18147 operators to extended DTGs
+Checking invertibility...
+Done checking invertibility
+Number of invertible variables is 3
+Checking connectivity...
+Done checking connectivity
+Finished initializing Red-Black task core at time step [t=102.852s]
+Total number of invertible variables is 3
+Invertible variables connection status: building causal graph...done! [t=0.00141861s]
+0
+Invertible variables without leafs connection status: 0
+Invertible variables with one directional connection status: 0
+Setting black variables...
+Use connected is set to False
+---------------------------------------------------------------------------------------
+{ Atom stopped(robot-02), NegatedAtom stopped(robot-02) } is not invertible, marked red [0 side effects]
+{ Atom stopped(robot-01), NegatedAtom stopped(robot-01) } is not invertible, marked red [0 side effects]
+{ Atom stopped(robot-00), NegatedAtom stopped(robot-00) } is not invertible, marked red [0 side effects]
+{ Atom battery(robot-02, battery-0000), Atom battery(robot-02, battery-0001), Atom battery(robot-02, battery-0002), Atom battery(robot-02, battery-0003), Atom battery(robot-02, battery-0004), Atom battery(robot-02, battery-0005), Atom battery(robot-02, battery-0006), Atom battery(robot-02, battery-0007), Atom battery(robot-02, battery-0008), Atom battery(robot-02, battery-0009) } is not invertible, marked red [3 side effects]
+{ Atom battery(robot-00, battery-0000), Atom battery(robot-00, battery-0001), Atom battery(robot-00, battery-0002), Atom battery(robot-00, battery-0003), Atom battery(robot-00, battery-0004), Atom battery(robot-00, battery-0005), Atom battery(robot-00, battery-0006), Atom battery(robot-00, battery-0007), Atom battery(robot-00, battery-0008), Atom battery(robot-00, battery-0009) } is not invertible, marked red [3 side effects]
+{ Atom battery(robot-01, battery-0000), Atom battery(robot-01, battery-0001), Atom battery(robot-01, battery-0002), Atom battery(robot-01, battery-0003), Atom battery(robot-01, battery-0004), Atom battery(robot-01, battery-0005), Atom battery(robot-01, battery-0006), Atom battery(robot-01, battery-0007), Atom battery(robot-01, battery-0008), Atom battery(robot-01, battery-0009) } is not invertible, marked red [3 side effects]
+{ Atom at(robot-02, location-0000), Atom at(robot-02, location-0001), Atom at(robot-02, location-0002), Atom at(robot-02, location-0003), Atom at(robot-02, location-0004), Atom at(robot-02, location-0005), Atom at(robot-02, location-0006), Atom at(robot-02, location-0007), Atom at(robot-02, location-0008), Atom at(robot-02, location-0009), Atom at(robot-02, location-0010), Atom at(robot-02, location-0011), Atom at(robot-02, location-0012), Atom at(robot-02, location-0013), Atom at(robot-02, location-0014), Atom at(robot-02, location-0015), Atom at(robot-02, location-0016), Atom at(robot-02, location-0017), Atom at(robot-02, location-0018), Atom at(robot-02, location-0019), Atom at(robot-02, location-0020), Atom at(robot-02, location-0021), Atom at(robot-02, location-0022), Atom at(robot-02, location-0023), Atom at(robot-02, location-0024), Atom at(robot-02, location-0025), Atom at(robot-02, location-0026), Atom at(robot-02, location-0027), Atom at(robot-02, location-0028), Atom at(robot-02, location-0029) } is invertible, marked black [1 side effects]
+{ Atom at(robot-00, location-0000), Atom at(robot-00, location-0001), Atom at(robot-00, location-0002), Atom at(robot-00, location-0003), Atom at(robot-00, location-0004), Atom at(robot-00, location-0005), Atom at(robot-00, location-0006), Atom at(robot-00, location-0007), Atom at(robot-00, location-0008), Atom at(robot-00, location-0009), Atom at(robot-00, location-0010), Atom at(robot-00, location-0011), Atom at(robot-00, location-0012), Atom at(robot-00, location-0013), Atom at(robot-00, location-0014), Atom at(robot-00, location-0015), Atom at(robot-00, location-0016), Atom at(robot-00, location-0017), Atom at(robot-00, location-0018), Atom at(robot-00, location-0019), Atom at(robot-00, location-0020), Atom at(robot-00, location-0021), Atom at(robot-00, location-0022), Atom at(robot-00, location-0023), Atom at(robot-00, location-0024), Atom at(robot-00, location-0025), Atom at(robot-00, location-0026), Atom at(robot-00, location-0027), Atom at(robot-00, location-0028), Atom at(robot-00, location-0029) } is invertible, marked black [1 side effects]
+{ Atom at(robot-01, location-0000), Atom at(robot-01, location-0001), Atom at(robot-01, location-0002), Atom at(robot-01, location-0003), Atom at(robot-01, location-0004), Atom at(robot-01, location-0005), Atom at(robot-01, location-0006), Atom at(robot-01, location-0007), Atom at(robot-01, location-0008), Atom at(robot-01, location-0009), Atom at(robot-01, location-0010), Atom at(robot-01, location-0011), Atom at(robot-01, location-0012), Atom at(robot-01, location-0013), Atom at(robot-01, location-0014), Atom at(robot-01, location-0015), Atom at(robot-01, location-0016), Atom at(robot-01, location-0017), Atom at(robot-01, location-0018), Atom at(robot-01, location-0019), Atom at(robot-01, location-0020), Atom at(robot-01, location-0021), Atom at(robot-01, location-0022), Atom at(robot-01, location-0023), Atom at(robot-01, location-0024), Atom at(robot-01, location-0025), Atom at(robot-01, location-0026), Atom at(robot-01, location-0027), Atom at(robot-01, location-0028), Atom at(robot-01, location-0029) } is invertible, marked black [1 side effects]
+---------------------------------------------------------------------------------------
+Total number of black variables is 3
+Total number of black root variables is 0
+Total number of variables is 9
+Total number of variables with all pairs of values connected is 0
+Total number of variables with all values connected to goal is 0
+Total number of black variables with strongly connected parents only is 0
+Maximal number of side effects for black variable is 1
+---------------------------------------------------------------------------------------
+Black DAG usage status: 0
+Finished initializing Red-Black task at time step [t=102.855s]
+Counting red preconditions..
+Preparing for red fact following..
+Setting use black reachable for black variables..
+Keeping achieving operators for red facts..
+Initializing black variables...
+Adding edges to forward graph, for the later calculation of missing values
+Precalculating all pair shortest paths
+Plan extraction: 1
+Finished initializing Red-Black Fact Following heuristic at time step [t=102.953s]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 8
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 20
+[g=0, 1 evaluated, 0 expanded, t=102.953s, 65576 KB]
+Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 8
+Initial heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 20
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 6
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 18
+[g=1, 4 evaluated, 3 expanded, t=102.961s, 65576 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 16
+[g=2, 14 evaluated, 13 expanded, t=102.978s, 65576 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 14
+[g=6, 167 evaluated, 152 expanded, t=103.235s, 65708 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 12
+[g=10, 187 evaluated, 172 expanded, t=103.261s, 65708 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 4
+[g=10, 783 evaluated, 666 expanded, t=104.031s, 65708 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 10
+[g=12, 3300 evaluated, 2483 expanded, t=106.779s, 65972 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 2
+[g=14, 7790 evaluated, 6139 expanded, t=111.689s, 66788 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 8
+[g=13, 10306 evaluated, 8300 expanded, t=114.328s, 67052 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 6
+[g=13, 11272 evaluated, 9038 expanded, t=115.27s, 67184 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 4
+[g=13, 78287 evaluated, 69876 expanded, t=187.64s, 75252 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 2
+[g=15, 99868 evaluated, 90033 expanded, t=211.452s, 76784 KB]
+Completely explored state space -- no solution!
+Actual search time: 230.77s [t=333.491s]
+Expanded 185685 state(s).
+Reopened 0 state(s).
+Evaluated 202047 state(s).
+Evaluations: 387732
+Generated 1416908 state(s).
+Dead ends: 16362 state(s).
+Number of registered states: 202047
+Int hash set load factor: 202047/262144 = 0.770748
+Int hash set resizes: 18
+Best solution cost so far: 16
+No solution found - keep searching
+Building successor generator...done! [t=333.491s]
+peak memory difference for successor generator creation: 0 KB
+time for successor generation creation: 1.633e-06s
+Variables: 9
+FactPairs: 126
+Bytes per state: 4
+Starting search: lazy_wastar(list(hrb2, hlm2), preferred = list(hrb2, hlm2), w = 5)
+Conducting lazy best first search, (real) bound = 16
+6 initial landmarks, 3 goal landmarks
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 8
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 20
+[g=0, 1 evaluated, 0 expanded, t=333.492s, 83592 KB]
+Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 8
+Initial heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 20
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 6
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 18
+[g=1, 4 evaluated, 3 expanded, t=333.499s, 83592 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 16
+[g=2, 13 evaluated, 12 expanded, t=333.511s, 83592 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 14
+[g=6, 36 evaluated, 35 expanded, t=333.545s, 83592 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 12
+[g=9, 77 evaluated, 76 expanded, t=333.594s, 83592 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 4
+[g=11, 452 evaluated, 417 expanded, 5 reopened, t=334.065s, 83592 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 10
+[g=12, 3501 evaluated, 2723 expanded, 162 reopened, t=337.294s, 83592 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 8
+[g=14, 7373 evaluated, 6242 expanded, 435 reopened, t=341.115s, 83592 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 2
+[g=12, 8653 evaluated, 7321 expanded, 547 reopened, t=342.231s, 83592 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 6
+[g=14, 22176 evaluated, 19882 expanded, 2529 reopened, t=354.16s, 83592 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 4
+[g=15, 77873 evaluated, 72359 expanded, 15154 reopened, t=400.279s, 83592 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 2
+[g=15, 123185 evaluated, 114355 expanded, 35218 reopened, t=425.785s, 83592 KB]
+Completely explored state space -- no solution!
+Actual search time: 231.894s [t=565.386s]
+Expanded 293826 state(s).
+Reopened 100677 state(s).
+Evaluated 311788 state(s).
+Evaluations: 504937
+Generated 2246258 state(s).
+Dead ends: 17962 state(s).
+Number of registered states: 211111
+Int hash set load factor: 211111/262144 = 0.805325
+Int hash set resizes: 18
+Best solution cost so far: 16
+No solution found - keep searching
+Building successor generator...done! [t=565.386s]
+peak memory difference for successor generator creation: 0 KB
+time for successor generation creation: 1.262e-06s
+Variables: 9
+FactPairs: 126
+Bytes per state: 4
+Starting search: lazy_wastar(list(hrb2, hlm2), preferred = list(hrb2, hlm2), w = 3)
+Conducting lazy best first search, (real) bound = 16
+6 initial landmarks, 3 goal landmarks
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 8
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 20
+[g=0, 1 evaluated, 0 expanded, t=565.386s, 94612 KB]
+Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 8
+Initial heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 20
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 6
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 18
+[g=1, 4 evaluated, 3 expanded, t=565.393s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 16
+[g=2, 13 evaluated, 12 expanded, t=565.406s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 14
+[g=6, 36 evaluated, 35 expanded, t=565.439s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 12
+[g=9, 70 evaluated, 69 expanded, t=565.472s, 94612 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 4
+[g=11, 439 evaluated, 411 expanded, 5 reopened, t=565.939s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 10
+[g=12, 3754 evaluated, 3050 expanded, 188 reopened, t=569.475s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 8
+[g=12, 7508 evaluated, 6415 expanded, 471 reopened, t=572.896s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 6
+[g=13, 7510 evaluated, 6417 expanded, 471 reopened, t=572.898s, 94612 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 2
+[g=12, 10568 evaluated, 9204 expanded, 832 reopened, t=575.956s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 4
+[g=15, 19356 evaluated, 17359 expanded, 2666 reopened, t=583.591s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 2
+[g=15, 41979 evaluated, 38679 expanded, 6964 reopened, t=601.157s, 94612 KB]
+Completely explored state space -- no solution!
+Actual search time: 232.187s [t=797.573s]
+Expanded 251835 state(s).
+Reopened 58686 state(s).
+Evaluated 269797 state(s).
+Evaluations: 462946
+Generated 1913845 state(s).
+Dead ends: 17962 state(s).
+Number of registered states: 211111
+Int hash set load factor: 211111/262144 = 0.805325
+Int hash set resizes: 18
+Best solution cost so far: 16
+No solution found - keep searching
+Building successor generator...done! [t=797.573s]
+peak memory difference for successor generator creation: 0 KB
+time for successor generation creation: 2.024e-06s
+Variables: 9
+FactPairs: 126
+Bytes per state: 4
+Starting search: lazy_wastar(list(hrb2, hlm2), preferred = list(hrb2, hlm2), w = 2)
+Conducting lazy best first search, (real) bound = 16
+6 initial landmarks, 3 goal landmarks
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 8
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 20
+[g=0, 1 evaluated, 0 expanded, t=797.573s, 94612 KB]
+Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 8
+Initial heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 20
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 6
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 18
+[g=1, 4 evaluated, 3 expanded, t=797.58s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 16
+[g=2, 13 evaluated, 12 expanded, t=797.593s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 14
+[g=6, 36 evaluated, 35 expanded, t=797.626s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 12
+[g=9, 74 evaluated, 73 expanded, t=797.669s, 94612 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 4
+[g=11, 361 evaluated, 354 expanded, 5 reopened, t=798.024s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 10
+[g=10, 4203 evaluated, 3503 expanded, 203 reopened, t=802.424s, 94612 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 2
+[g=9, 7290 evaluated, 6393 expanded, 578 reopened, t=805.364s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 8
+[g=12, 7301 evaluated, 6404 expanded, 578 reopened, t=805.374s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 6
+[g=14, 8960 evaluated, 7887 expanded, 741 reopened, t=806.998s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 4
+[g=15, 13569 evaluated, 12185 expanded, 1152 reopened, t=811.246s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 2
+[g=15, 18556 evaluated, 16773 expanded, 1913 reopened, t=815.065s, 94612 KB]
+Completely explored state space -- no solution!
+Actual search time: 234.802s [t=1032.38s]
+Expanded 229626 state(s).
+Reopened 36477 state(s).
+Evaluated 247588 state(s).
+Evaluations: 440737
+Generated 1738425 state(s).
+Dead ends: 17962 state(s).
+Number of registered states: 211111
+Int hash set load factor: 211111/262144 = 0.805325
+Int hash set resizes: 18
+Best solution cost so far: 16
+No solution found - keep searching
+Building successor generator...done! [t=1032.38s]
+peak memory difference for successor generator creation: 0 KB
+time for successor generation creation: 2.014e-06s
+Variables: 9
+FactPairs: 126
+Bytes per state: 4
+Starting search: lazy_wastar(list(hrb2, hlm2), preferred = list(hrb2, hlm2), w = 1)
+Conducting lazy best first search, (real) bound = 16
+6 initial landmarks, 3 goal landmarks
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 20
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 8
+[g=0, 1 evaluated, 0 expanded, t=1032.38s, 94612 KB]
+Initial heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 20
+Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 8
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 18
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 6
+[g=1, 4 evaluated, 3 expanded, t=1032.38s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 16
+[g=2, 12 evaluated, 11 expanded, t=1032.39s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 14
+[g=6, 32 evaluated, 31 expanded, t=1032.42s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 12
+[g=9, 113 evaluated, 112 expanded, t=1032.52s, 94612 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 4
+[g=11, 271 evaluated, 268 expanded, 3 reopened, t=1032.7s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 10
+[g=8, 3538 evaluated, 2965 expanded, 132 reopened, t=1036.36s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 8
+[g=10, 5765 evaluated, 5099 expanded, 201 reopened, t=1038.81s, 94612 KB]
+New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), transform = adapt_costs(plusone), pref = true): 2
+[g=9, 6070 evaluated, 5382 expanded, 213 reopened, t=1039.18s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 6
+[g=11, 7703 evaluated, 6927 expanded, 250 reopened, t=1040.82s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 4
+[g=13, 8844 evaluated, 7978 expanded, 310 reopened, t=1041.73s, 94612 KB]
+New best heuristic value for rb(dag = from_coloring, extract_plan = true, transform = adapt_costs(plusone)): 2
+[g=15, 11812 evaluated, 10820 expanded, 447 reopened, t=1044.19s, 94612 KB]
+Completely explored state space -- no solution!
+Actual search time: 230.207s [t=1262.58s]
+Expanded 212160 state(s).
+Reopened 19011 state(s).
+Evaluated 230122 state(s).
+Evaluations: 423271
+Generated 1599295 state(s).
+Dead ends: 17962 state(s).
+Number of registered states: 211111
+Int hash set load factor: 211111/262144 = 0.805325
+Int hash set resizes: 18
+Best solution cost so far: 16
+No solution found - keep searching
+Actual search time: 1262.45s [t=1262.58s]
+Cumulative statistics:
+Expanded 1265836 state(s).
+Reopened 214851 state(s).
+Evaluated 1364027 state(s).
+Evaluations: 2415013
+Generated 9634409 state(s).
+Dead ends: 0 state(s).
+Search time: 1262.45s
+Total time: 1262.58s
+Solution found.
+Peak memory: 94612 KB
+Remove intermediate file output.sas
+
+search exit code: 0
